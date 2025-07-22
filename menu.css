@@ -1,0 +1,306 @@
+/* Reset */
+/* Reset body and html margins and paddings */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+* {
+  font-family: 'Shadows Into Light', cursive;
+}
+
+
+.site-footer {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 1.5rem 0 !important;
+  background-color: #222 !important;
+  color: white !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  left: 0 !important;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3) !important;
+  margin-top: 4rem !important;
+}
+
+
+
+
+.Our-prd {
+    margin-top: 5rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+
+
+/* Social icons styling */
+.social-icons a img {
+  width: 24px;
+  height: 24px;
+  margin: 0 6px;
+  vertical-align: middle;
+}
+
+
+/* Category buttons container */
+.container .category-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+  gap: 1.5rem;
+}
+
+/* Category buttons basic style */
+.container .category-buttons button {
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+  border-radius: 0;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.3s, color 0.3s;
+  font-weight: 400;
+}
+
+/* Hover and focus */
+.container .category-buttons button:hover,
+.container .category-buttons button:focus {
+  border-bottom-color: #11A500;
+  color: #11A500;
+}
+
+/* Active category button */
+.container .category-buttons button.active {
+  border-bottom-color: #11A500;
+  font-weight: 600;
+  color: #11A500;
+}
+
+/* Products container - grid with exactly 5 items per row */
+.container .products-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 6 cards per row */
+    gap: 2.5rem; /* bigger gaps */
+    padding: 0 1rem;
+}
+
+.container .products-container .product {
+    background: #fff;
+    border-radius: 20px;
+    padding: 1rem;  /* reduced padding */
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    outline: none;
+}
+
+.container .products-container .product img {
+    width: 100%;
+    height: 8rem;  /* smaller image */
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.container .products-container .product h3 {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.container .products-container .product .price {
+    margin-top: 0.3rem;
+    font-size: 1.1rem;
+    color: #27ae60;
+}
+
+
+.container .products-container .product:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  transform: translateY(-5px);
+  outline: none;
+}
+
+.container .products-container .product img {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.container .products-container .product:hover img {
+  transform: scale(0.95);
+}
+
+.container .products-container .product h3 {
+  margin-top: 0.8rem;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+.container .products-container .product .price {
+  margin-top: 0.4rem;
+  font-size: 1.4rem;
+  color: #27ae60;
+}
+
+/* Product preview modal overlay */
+.products-preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Single preview card */
+.products-preview .preview {
+  display: none;
+  padding: 1rem;
+  text-align: center;
+  background: #fff;
+  position: relative;
+  margin: 0.5rem;
+  width: 90vw;
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+/* Show active preview */
+.products-preview .preview.active {
+  display: inline-block;
+}
+
+/* Preview image */
+.products-preview .preview img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+  border-radius: 15px;
+}
+
+/* Close icon */
+.products-preview .preview .fa-times {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  cursor: pointer;
+  color: #444;
+  font-size: 2.5rem;
+  transition: transform 0.3s ease;
+}
+
+.products-preview .preview .fa-times:hover {
+  transform: rotate(90deg);
+}
+
+/* Preview text */
+.products-preview .preview h3 {
+  color: #444;
+  padding: 0.5rem 0;
+  font-size: 1.6rem;
+}
+
+.products-preview .preview p {
+  line-height: 1.5;
+  padding: 0.5rem 0;
+  font-size: 1.2rem;
+  color: #777;
+}
+
+.products-preview .preview .price {
+  padding: 0.5rem 0;
+  font-size: 1.8rem;
+  color: #27ae60;
+}
+
+/* Preview buttons container */
+.products-preview .preview .buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+
+.products-preview .preview .buttons a {
+  flex: 1 1 6rem;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  color: #11A500;
+  border: 0.1rem solid #306605;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.products-preview .preview .buttons a.cart {
+  background: #306605;
+  color: #fff;
+}
+
+.products-preview .preview .buttons a.cart:hover {
+  background: #11A500;
+}
+
+.products-preview .preview .buttons a.buy:hover {
+  background: #11A500;
+  color: #fff;
+}
+
+
+
+/* Keyframes for jumping animation */
+@keyframes jump {
+  0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+  }
+  40% {
+      transform: translateY(-20px);
+  }
+  60% {
+      transform: translateY(-10px);
+  }
+}
+
+/* Animated text styles */
+.Our-prd {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.animated-text {
+  display: inline-block;
+}
+
+.animated-text span {
+  display: inline-block;
+  animation: jump 1.5s infinite;
+}
+
+.animated-text span:nth-child(1) { animation-delay: 0s; }
+.animated-text span:nth-child(2) { animation-delay: 0.1s; }
+.animated-text span:nth-child(3) { animation-delay: 0.2s; }
+.animated-text span:nth-child(4) { animation-delay: 0.3s; }
+.animated-text span:nth-child(5) { animation-delay: 0.4s; }
+.animated-text span:nth-child(6) { animation-delay: 0.5s; }
+.animated-text span:nth-child(7) { animation-delay: 0.6s; }
+.animated-text span:nth-child(8) { animation-delay: 0.7s; }
+.animated-text span:nth-child(9) { animation-delay: 0.8s; }
+.animated-text span:nth-child(10) { animation-delay: 0.9s; }
+.animated-text span:nth-child(11) { animation-delay: 1s; }
+.animated-text span:nth-child(12) { animation-delay: 1.1s; }

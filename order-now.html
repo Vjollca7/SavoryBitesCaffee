@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Order Now - Savory Bites Café</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="order-now.css">
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="#">Find Us</a>
+      <a href="order-now.html" class="order-button">
+        <svg class="heart-outline" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                   2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09
+                   C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5
+                   c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                fill="none" stroke="#b25050" stroke-width="2"/>
+        </svg>
+        Order Now
+      </a>
+    </nav>
+    <div class="logo">
+      <img src="images/logo.png" alt="Savory Bites Café Logo">
+    </div>
+  </header>
+
+  <h1>Your Cart & Order</h1>
+
+  <!-- Cart Section -->
+  <div id="cart-container">
+    <ul id="cart-items"></ul>
+    <div id="cart-total"></div>
+  </div>
+
+  <!-- Checkout Form -->
+  <form id="checkout-form">
+    <h2>Checkout</h2>
+    <label for="name">Full Name</label>
+    <input type="text" id="name" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" required>
+
+    <label for="address">Address</label>
+    <textarea id="address" rows="3" required></textarea>
+
+    <label for="payment-method">Payment Method</label>
+    <select id="payment-method" required>
+      <option value="">Select</option>
+      <option value="cash">Cash on Delivery</option>
+      <option value="card">Credit/Debit Card</option>
+    </select>
+    
+    <!-- Card Payment Fields (Hidden Initially) -->
+  <div id="card-fields" style="display: none;">
+    <label for="card-number">Card Number</label>
+    <input type="text" id="card-number" maxlength="16" placeholder="1234 5678 9012 3456">
+
+    <label for="expiry-date">Expiry Date</label>
+    <input type="text" id="expiry-date" placeholder="MM/YY">
+
+    <label for="cvv">CVV</label>
+    <input type="text" id="cvv" maxlength="4" placeholder="123">
+  </div>
+
+    <button type="submit">Place Order</button>
+  </form>
+
+  
+
+  <!-- Thank You Message -->
+  <div id="thank-you">Thank you for your order! We will contact you soon.</div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Address</h3>
+        <p>Prishtina e Vjeter,<br>Kosove, 10000</p>
+      </div>
+      <div class="footer-column">
+        <h3>Contact</h3>
+        <p>Phone: +383 44 123 456<br>Email: savorybites@gmail.com</p>
+      </div>
+      <div class="footer-column">
+        <h3>Opening Hours</h3>
+        <p>Mon-Sat: 9AM - 11PM<br>Sunday: Closed</p>
+      </div>
+      <div class="footer-column">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
+          <a href="#"><img src="images/instagram-icon.png" alt="Instagram"></a>
+          <a href="#"><img src="images/tiktok-icon.png" alt="TikTok"></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© Savory Bites Café 2024 | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for cart logic -->
+  <script>
+    function renderCart() {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartItemsUl = document.getElementById('cart-items');
+      const cartTotalDiv = document.getElementById('cart-total');
+
+      if (cart.length === 0) {
+        cartItemsUl.innerHTML = '<li>Your cart is empty.</li>';
+        cartTotalDiv.textContent = '';
+        return;
+      }
+
+      let total = 0;
+      cartItemsUl.innerHTML = '';
+
+      cart.forEach((item, index) => {
+        total += item.price * item.quantity;
+
+        const li = document.createElement('li');
+
+        li.innerHTML = `
+          <div class="item-image">
+            <img src="${item.image}" alt="${item.name}" />
+          </div>
+          <div class="item-info">
+            <h4>${item.name}</h4>
+            <p>${item.description || ''}</p>
+            <div class="price">${item.price.toFixed(2)} Euro</div>
+          </div>
+          <div class="quantity-controls">
+            <button class="decrease" data-index="${index}">-</button>
+            <span>${item.quantity}</span>
+            <button class="increase" data-index="${index}">+</button>
+            <button class="remove-btn" data-index="${index}" title="Remove item">&times;</button>
+          </div>
+        `;
+
+        cartItemsUl.appendChild(li);
+      });
+
+      cartTotalDiv.textContent = `Total: ${total.toFixed(2)} Euro`;
+
+      document.querySelectorAll('.increase').forEach(btn => {
+        btn.onclick = () => {
+          const idx = btn.getAttribute('data-index');
+          cart[idx].quantity++;
+          localStorage.setItem('cart', JSON.stringify(cart));
+          renderCart();
+        };
+      });
+
+      document.querySelectorAll('.decrease').forEach(btn => {
+        btn.onclick = () => {
+          const idx = btn.getAttribute('data-index');
+          if (cart[idx].quantity > 1) {
+            cart[idx].quantity--;
+          } else {
+            cart.splice(idx, 1);
+          }
+          localStorage.setItem('cart', JSON.stringify(cart));
+          renderCart();
+        };
+      });
+
+      document.querySelectorAll('.remove-btn').forEach(btn => {
+        btn.onclick = () => {
+          const idx = btn.getAttribute('data-index');
+          cart.splice(idx, 1);
+          localStorage.setItem('cart', JSON.stringify(cart));
+          renderCart();
+        };
+      });
+    }
+
+    renderCart();
+
+    const form = document.getElementById('checkout-form');
+    const thankYou = document.getElementById('thank-you');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      localStorage.removeItem('cart');
+      form.style.display = 'none';
+      document.getElementById('cart-container').style.display = 'none';
+      thankYou.style.display = 'block';
+    });
+  </script>
+
+<script>
+  const paymentSelect = document.getElementById('payment-method');
+  const cardFields = document.getElementById('card-fields');
+
+  paymentSelect.addEventListener('change', function () {
+    if (this.value === 'card') {
+      cardFields.style.display = 'block';
+    } else {
+      cardFields.style.display = 'none';
+    }
+  });
+</script>
+
+
+</body>
+</html>

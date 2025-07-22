@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Savory Bites Café</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="#">Find Us</a>
+      <a href="order-now.html" class="order-button">
+  <svg class="heart-outline" viewBox="0 0 24 24">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+          fill="none" 
+          stroke="#b25050" 
+          stroke-width="2"/>
+  </svg>
+  Order Now
+</a>
+    </nav>
+    <div class="logo">
+      <img src="images/logo.png" alt="Savory Bites Café Logo">
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Savory Bites Café</h1>
+      <p>All-natural. Made with love—for body and soul.</p>
+      <div class="hero-buttons">
+        <button class="book-btn" onclick="document.getElementById('daily-specials').scrollIntoView({behavior: 'smooth'})">
+          Daily Specials ↓
+        </button>
+        <a href="#our-story" class="video-btn">▶ Our Story</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="images/salad.png" alt="Salad Plate" id="floating-salad">
+    </div>
+  </section>
+
+  <!-- Daily Specials Section -->
+  <section id="daily-specials" class="specials-section">
+    <div class="specials-container">
+      <h2>Today's Specials</h2>
+      <div class="special-items">
+        <div class="special-card">
+          <div class="food-image-container">
+            <img src="images/special1.jpg" alt="Seasonal Harvest Bowl" class="food-image">
+          </div>
+          <h3>Seasonal Harvest Bowl</h3>
+          <p>Organic greens, roasted squash, quinoa, pomegranate, and tahini dressing</p>
+          <span class="price">€12.90</span>
+        </div>
+        <div class="special-card">
+          <div class="food-image-container">
+            <img src="images/special2.jpg" alt="Family Recipe Pasta" class="food-image">
+          </div>
+          <h3>Family Recipe Pasta</h3>
+          <p>Handmade pasta with Mama Rossi's tomato basil sauce and vegan parmesan</p>
+          <span class="price">€14.50</span>
+        </div>
+        <div class="special-card">
+          <div class="food-image-container">
+            <img src="images/special3.jpg" alt="Golden Turmeric Latte" class="food-image">
+          </div>
+          <h3>Golden Turmeric Latte</h3>
+          <p>Dairy-free with oat milk, black pepper, and local honey</p>
+          <span class="price">€5.20</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story Section -->
+  <section id="our-story" class="story-section">
+    <div class="story-container">
+      <div class="story-text">
+        <h2>The Rossi Family Tradition</h2>
+        <p>Since 2008, our family has served heartfelt meals from our kitchen to yours. What began as Mama Rossi's recipes for neighbors has grown into a beloved café, still family-run today.</p>
+        <p>We hold simple values close:<br>
+        • Local ingredients • Food made with care • Everyone welcome</p>
+        <div class="innovation-note">
+          <p>Today we're bringing these traditions to the digital age - with online ordering, delivery options, and expanded menus to serve all diets, while keeping our family's touch in every dish.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+
+  <!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>Address</h3>
+      <p>Prishtina e Vjeter,<br>Kosove, 10000</p>
+    </div>
+    
+    <div class="footer-column">
+      <h3>Contact</h3>
+      <p>Phone: +383 44 123 456<br>Email: savorybites@gmail.com</p>
+    </div>
+    
+    <div class="footer-column">
+      <h3>Opening Hours</h3>
+      <p>Mon-Sat: 9AM - 11PM<br>Sunday: Closed</p>
+    </div>
+    
+    <div class="footer-column">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
+        <a href="#"><img src="images/instagram-icon.png" alt="Instagram"></a>
+        <a href="#"><img src="images/tiktok-icon.png" alt="TikTok"></a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>© Savory Bites Café 2024 | All Rights Reserved</p>
+  </div>
+</footer>
+
+</body>
+</html>
