@@ -97,6 +97,72 @@
 
   <script src="script.js"></script>
 
+  <section class="gallery-section">
+    
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
+</div>
+
+  <div class="container">
+    <h2 class="gallery-title">Galeria</h2>
+    
+    <div class="swiper gallery-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="images/Gallery/gallery-1.png" class="img-fluid" alt="">
+        </div>
+        <div class="swiper-slide">
+          <img src="images/Gallery/gallery-2.png" class="img-fluid" alt="">
+        </div>
+        <div class="swiper-slide">
+          <img src="images/Gallery/gallery-3.png" class="img-fluid" alt="">
+        </div>
+        <div class="swiper-slide">
+          <img src="images/Gallery/gallery-4.png" class="img-fluid" alt="">
+        </div>
+        <div class="swiper-slide">
+          <img src="images/Gallery/gallery-5.png" class="img-fluid" alt="">
+        </div>
+        <div class="swiper-slide">
+          <img src="images/Gallery/gallery-6.png" class="img-fluid" alt="">
+        </div>
+      </div>
+      
+      <!-- Controls -->
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const swiper = new Swiper('.gallery-swiper', {
+    loop: true,
+    spaceBetween: 20,
+    centeredSlides: true,
+    slidesPerView: 3,
+    autoplay: {
+      delay:2500,
+      disableOnInteraction:false,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      320: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    }
+  });
+</script>
+
   <!-- Footer -->
 <footer class="site-footer">
   <div class="footer-container">
